@@ -21,7 +21,7 @@
 3. 輸入 "MCP" 並選擇 "MCP: Install Server"
 4. 輸入此 repository 的 URL：
    ```
-   https://github.com/your-username/mcp-webbit
+   https://github.com/marty5499/mcp-webbit
    ```
 
 #### 手動配置 Claude Desktop
@@ -36,7 +36,7 @@
   "mcpServers": {
     "mcp-webbit": {
       "command": "npx",
-      "args": ["-y", "https://github.com/your-username/mcp-webbit"]
+      "args": ["-y", "https://github.com/marty5499/mcp-webbit"]
     }
   }
 }
@@ -47,7 +47,7 @@
 #### 1. Clone 專案
 
 ```bash
-git clone https://github.com/your-username/mcp-webbit.git
+git clone https://github.com/marty5499/mcp-webbit.git
 cd mcp-webbit
 ```
 
