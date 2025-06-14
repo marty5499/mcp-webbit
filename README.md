@@ -14,7 +14,7 @@
 
 **最簡單的方式：**
 ```bash
-npx https://github.com/marty5499/mcp-webbit
+npx mcp-webbit
 ```
 
 或在 Claude Desktop / Cursor IDE 配置中使用：
@@ -23,7 +23,7 @@ npx https://github.com/marty5499/mcp-webbit
   "mcpServers": {
     "mcp-webbit": {
       "command": "npx",
-      "args": ["-y", "https://github.com/marty5499/mcp-webbit"]
+      "args": ["-y", "mcp-webbit"]
     }
   }
 }
