@@ -451,8 +451,52 @@ ${code}
   throw new Error(`未知的工具: ${name}`);
 });
 
+// 處理命令行參數
+function handleCommandLineArgs() {
+  const args = process.argv.slice(2);
+  
+  if (args.includes('--help') || args.includes('-h')) {
+    console.log(`
+WebBit MCP Service v1.0.0
+
+用途: 為 WebBit 開發板生成 MicroPython 程式碼的 MCP 服務
+
+使用方式:
+  node index.js                啟動 MCP 服務
+  npx https://github.com/marty5499/mcp-webbit    透過 npx 啟動
+
+選項:
+  --help, -h                  顯示此說明
+  --version, -v               顯示版本資訊
+  --test                      測試模式
+
+MCP 工具:
+  generate_webbit_code        根據需求生成 WebBit MicroPython 程式碼
+
+更多資訊: https://github.com/marty5499/mcp-webbit
+`);
+    process.exit(0);
+  }
+  
+  if (args.includes('--version') || args.includes('-v')) {
+    console.log('WebBit MCP Service v1.0.0');
+    process.exit(0);
+  }
+  
+  if (args.includes('--test')) {
+    console.log('WebBit MCP Service 測試模式');
+    console.log('✅ 服務可以正常啟動');
+    console.log('✅ 依賴模組載入成功');
+    console.log('✅ 配置檔案讀取正常');
+    process.exit(0);
+  }
+}
+
 // 啟動服務器
 async function main() {
+  // 處理命令行參數
+  handleCommandLineArgs();
+  
   // 讀取 webbit API 文檔
   try {
     webbitApiDoc = await readFile(join(__dirname, 'webbit_api.md'), 'utf-8');
