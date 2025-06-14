@@ -1,0 +1,70 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# WebBit API 使用指南
+
+## API 文件位置
+WebBit 的完整 API 文檔位於 [webbit_api.md](mdc:webbit_api.md)
+
+## 支援的硬體功能
+
+### LED 矩陣顯示
+- `matrix(r, g, b, image)` - 顯示圖形，支援 SHAPE_MAPPING 中的所有圖形
+- `scroll(r, g, b, data)` - 跑馬燈顯示
+- `show(index, r, g, b)` - 控制單顆 LED
+- `showAll(r, g, b)` - 全屏顯示
+
+### 輸入控制
+- `btnA()` / `btnB()` - 按鈕狀態檢測
+- `touchP0()` / `touchP1()` / `touchP2()` - 觸摸檢測
+
+### 感測器
+- `temp()` - 溫度感測
+- `leftLight()` / `rightLight()` - 光度感測
+- `dht11(pin)` - DHT11 溫濕度感測器
+- `ultrasonic(trig, echo)` - 超音波距離感測
+- `soundDetect(pin, callback)` - 聲音偵測
+- `vibration(pin, callback)` - 震動偵測
+
+### GPIO 控制
+- `setPin(pin, state)` - 數位輸出
+- `readPin(pin)` - 數位輸入
+- `adc(pin)` - 類比輸入
+
+### 驅動器
+- `sg90(pin, angle)` - 伺服馬達控制
+- `play(notes)` - 音樂播放
+
+### 網路通訊 (MQTT)
+- `pub(topic, msg)` - 發送訊息
+- `sub(topic, callback)` - 訂閱訊息
+- `checkMQTT()` - 檢查訊息
+
+## 程式模板結構
+所有生成的程式都基於 [webbit_api.md](mdc:webbit_api.md) 中的標準模板：
+
+```python
+import uasyncio
+from webduino.webbit import WebBit
+
+async def main():
+    wbit = WebBit(mqtt=False)  # 根據需求設定 MQTT
+    
+    while True:
+        # 主要邏輯
+        await uasyncio.sleep_ms(10)
+
+uasyncio.run(main())
+```
+
+## 程式生成邏輯
+位於 [index.js](mdc:index.js) 的 `WebBitCodeGenerator` 類別：
+- `analyzeRequirements()` - 分析需求關鍵詞
+- `generateCode()` - 組合完整程式碼
+- `findShapeName()` - 圖形名稱對照
+- `needsMqtt()` - 判斷是否需要 MQTT 功能
+
+## 圖形對照表
+專案內建 SHAPE_MAPPING 物件，支援繁體中文圖形名稱到 API 參數的自動對照。

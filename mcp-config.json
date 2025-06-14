@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "webbit": {
+      "command": "node",
+      "args": ["/Users/sheuyih-shiang/kingkit.codes/2025/mcp-webbit/index.js"],
+      "cwd": "/Users/sheuyih-shiang/kingkit.codes/2025/mcp-webbit",
+      "description": "WebBit MicroPython 程式碼生成服務"
+    }
+  }
+} 

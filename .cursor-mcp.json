@@ -1,0 +1,10 @@
+{
+  "mcpServers": {
+    "webbit": {
+      "command": "node",
+      "args": ["index.js"],
+      "cwd": "/Users/sheuyih-shiang/kingkit.codes/2025/mcp-webbit",
+      "env": {}
+    }
+  }
+} 

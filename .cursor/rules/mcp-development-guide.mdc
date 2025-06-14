@@ -1,0 +1,78 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# MCP 開發指南
+
+## MCP 服務架構
+本專案是基於 Model Context Protocol (MCP) 的服務，主要文件位於 [index.js](mdc:index.js)
+
+## MCP 服務配置
+
+### 服務初始化
+```javascript
+const server = new Server({
+  name: "mcp-webbit",
+  version: "1.0.0",
+}, {
+  capabilities: { tools: {} }
+});
+```
+
+### 工具註冊
+服務提供一個 MCP 工具：`generate_webbit_code`
+
+參數：
+- `requirements` (必需): 程式需求描述（繁體中文）
+- `include_comments` (可選): 是否包含詳細註解（預設 true）
+
+## 客戶端配置
+
+### Claude Desktop 配置
+配置文件位於 [mcp-config.json](mdc:mcp:mcp-config.json)，需要複製到 Claude Desktop 的配置目錄：
+
+- macOS: `~/Library/Application Support/Claude/claude_desktop_config.json`
+- Windows: `%APPDATA%\Claude\claude_desktop_config.json`
+
+### 服務啟動
+```bash
+npm start          # 生產模式
+npm run dev        # 開發模式（自動重載）
+npm test           # 執行測試
+```
+
+## 開發流程
+
+### 新增功能支援
+1. 在 `WebBitCodeGenerator.analyzeRequirements()` 中新增關鍵詞檢測
+2. 實作對應的程式碼生成邏輯  
+3. 更新註解和文件
+4. 在 [test.js](mdc:mcp:test.js) 中新增測試範例
+
+### 圖形名稱擴充
+修改 `SHAPE_MAPPING` 物件以新增圖形名稱對照
+
+### 程式模板調整
+基礎模板定義在 `TEMPLATE_BASE` 常數中，可根據需要調整
+
+## 測試與除錯
+
+### 測試腳本
+[test.js](mdc:mcp:test.js) 提供基本的服務測試，包含：
+- 文件存在性檢查
+- 測試範例展示
+- MCP 工具調用格式說明
+
+### 除錯技巧
+- 使用 `npm run dev` 啟用自動重載
+- 檢查 Claude Desktop 的 MCP 服務連接狀態
+- 確認 Node.js 版本 >= 18.0.0
+
+## 程式碼生成流程
+1. 接收繁體中文需求描述
+2. 分析關鍵詞和功能需求
+3. 判斷是否需要 MQTT 功能
+4. 生成對應的 MicroPython 程式碼
+5. 添加詳細註解（如需要）
+6. 返回完整的可執行程式

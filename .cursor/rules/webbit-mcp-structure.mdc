@@ -1,0 +1,54 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# WebBit MCP 專案結構指南
+
+## 專案概述
+這是一個基於 Model Context Protocol (MCP) 的服務，專門用於生成 WebBit MicroPython 程式碼。
+
+## 主要文件結構
+
+### 核心文件
+- [index.js](mdc:index.js) - MCP 服務的主要入口點，包含 WebBitCodeGenerator 類別和 MCP 服務器設定
+- [package.json](mdc:package.json) - Node.js 專案配置文件，定義依賴項和腳本
+- [mcp-config.json](mdc:mcp-config.json) - MCP 服務的配置文件，用於 Claude Desktop 集成
+
+### 文檔文件
+- [README.md](mdc:README.md) - 完整的專案說明文檔，包含安裝指南和使用範例
+- [webbit_api.md](mdc:webbit_api.md) - WebBit API 文檔，包含所有支援的 MicroPython API 和程式模板
+
+### 測試文件
+- [test.js](mdc:test.js) - 測試腳本，驗證 MCP 服務的基本功能
+
+## 核心功能
+
+### WebBitCodeGenerator 類別
+位於 [index.js](mdc:index.js) 中，負責：
+- 分析繁體中文需求
+- 生成對應的 MicroPython 程式碼
+- 處理圖形名稱對照
+- 管理 MQTT 設定
+
+### 圖形名稱對照
+專案包含完整的圖形名稱對照表 (SHAPE_MAPPING)，支援：
+- 表情符號（開心、難過）
+- 手勢（剪刀、石頭、布）
+- 愛心圖案
+- 箭頭方向
+- 幾何圖形
+- 特殊符號
+
+### 程式模板
+基於 [webbit_api.md](mdc:webbit_api.md) 中的標準模板，包含：
+- WebBit 初始化
+- MQTT 設定（選用）
+- 主要程式迴圈
+- 回調函數處理
+
+## 開發注意事項
+- 使用 ES6 模組語法
+- 需要 Node.js 18+ 版本  
+- 採用 async/await 異步程式設計
+- 支援 MCP 標準協議

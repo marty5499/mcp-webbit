@@ -1,0 +1,39 @@
+{
+  "name": "mcp-webbit",
+  "version": "1.0.0",
+  "description": "MCP service for generating WebBit MicroPython code",
+  "type": "module",
+  "main": "index.js",
+  "bin": {
+    "mcp-webbit": "./index.js"
+  },
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js",
+    "test": "node test.js",
+    "prepare": "chmod +x index.js",
+    "release": "npm version patch && git push origin main --tags"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.4.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  },
+  "keywords": [
+    "mcp",
+    "webbit",
+    "micropython",
+    "iot"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/mcp-webbit.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-username/mcp-webbit/issues"
+  },
+  "homepage": "https://github.com/your-username/mcp-webbit#readme",
+  "author": "",
+  "license": "MIT"
+} 
