@@ -56,4 +56,11 @@
 - 使用 ES6 模組系統
 - 基於 @modelcontextprotocol/sdk
 - 支援 Node.js 18.0.0+
-- 遵循 Conventional Commits 規範 
+- 遵循 Conventional Commits 規範
+
+### 部署準備 (Deployment)
+- 📋 建立完整的部署指南 (DEPLOY.md)
+- 🔄 設定 git repository 和提交歷史
+- 🚀 準備 GitHub 推送和雲端部署
+- 📦 配置 npm 發布流程
+- ⚙️ 設定自動化版本更新腳本 
