@@ -10,6 +10,27 @@
 - 💡 **詳細註解**：提供清楚的程式說明和 API 使用指南
 - 🔧 **模組化設計**：使用 ES6 模組和現代 JavaScript 特性
 
+## 🚀 快速安裝 (npx)
+
+**最簡單的方式：**
+```bash
+npx https://github.com/marty5499/mcp-webbit
+```
+
+或在 Claude Desktop / Cursor IDE 配置中使用：
+```json
+{
+  "mcpServers": {
+    "mcp-webbit": {
+      "command": "npx",
+      "args": ["-y", "https://github.com/marty5499/mcp-webbit"]
+    }
+  }
+}
+```
+
+> 📋 詳細的 npx 安裝指南請參考 [NPX_INSTALL.md](./NPX_INSTALL.md)
+
 ## 安裝與設定
 
 ### 方法一：直接從 GitHub 安裝（推薦）
