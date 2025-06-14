@@ -455,6 +455,7 @@ ${code}
 function handleCommandLineArgs() {
   const args = process.argv.slice(2);
   
+  // 只處理明確的幫助和版本請求
   if (args.includes('--help') || args.includes('-h')) {
     console.log(`
 WebBit MCP Service v1.0.0
@@ -490,6 +491,9 @@ MCP 工具:
     console.log('✅ 配置檔案讀取正常');
     process.exit(0);
   }
+  
+  // 對於其他所有情況，繼續啟動 MCP 服務
+  return true;
 }
 
 // 啟動服務器
