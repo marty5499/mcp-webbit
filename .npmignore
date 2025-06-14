@@ -1,0 +1,36 @@
+# 開發和測試文件
+test-mcp.js
+test.js
+*.test.js
+*.spec.js
+
+# 開發工具配置
+.cursor/
+.vscode/
+.idea/
+
+# Git 相關
+.git/
+.gitignore
+
+# 安裝腳本（用戶會從 GitHub 獲取）
+install.sh
+install.bat
+
+# 文檔（保留重要的，排除詳細的）
+DEPLOY.md
+NPX_INSTALL.md
+
+# 日誌和緩存
+logs/
+*.log
+npm-debug.log*
+.npm
+
+# 臨時文件
+.DS_Store
+Thumbs.db
+
+# 環境變數
+.env
+.env.* 

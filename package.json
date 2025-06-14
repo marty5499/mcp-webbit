@@ -24,7 +24,12 @@
     "mcp",
     "webbit",
     "micropython",
-    "iot"
+    "iot",
+    "model-context-protocol",
+    "cursor",
+    "claude",
+    "ai-tools",
+    "code-generation"
   ],
   "repository": {
     "type": "git",
@@ -34,6 +39,6 @@
     "url": "https://github.com/marty5499/mcp-webbit/issues"
   },
   "homepage": "https://github.com/marty5499/mcp-webbit#readme",
-  "author": "",
+  "author": "marty5499",
   "license": "MIT"
 } 
